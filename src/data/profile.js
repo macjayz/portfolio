@@ -52,7 +52,7 @@ export const projects = [
     category: 'web3',
     title: 'Heightproof',
     image: '/assets/images/projects/heightproof.jpg',
-    link: { label: 'GitHub ↗', href: 'https://github.com/macjayz/sentinel' },
+    link: { label: 'GitHub ↗', href: 'https://github.com/macjayz/heightproof' },
     description:
       'Self-hosted observability for EVM JSON-RPC traffic that catches the failures hiding behind 200 OK: stale chain heads, cross-provider disagreement at the same block height, silent nulls, reorg lag, throttling and wasted compute. TypeScript · viem · Redis Streams · PostgreSQL · Docker',
   },

@@ -1,0 +1,67 @@
+/*
+========================================
+ TWEAKABLE PROPERTIES
+========================================
+*/
+:root {
+ /* How blurry to start (8px) */
+ --blur-amount: 8px;
+ 
+ /* How far down to start (20px) */
+ --translate-y-amount: 20px; 
+ 
+ /* How much to tilt in 3D (40deg) */
+ --rotate-x-amount: 40deg;
+ 
+ /* Animation durations */
+ --opacity-duration: 0.6s;
+ --filter-duration: 0.8s;
+ --transform-duration: 0.8s;
+
+ /* Animation timing function (for the transform) */
+ --transform-ease: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/*
+========================================
+ CORE STYLES (No need to edit)
+========================================
+*/
+
+/* This is the class you will add to your Elementor widgets.
+   We add 'perspective' here so the 3D rotation works
+   on the .word children.
+*/
+.blur-reveal {
+ perspective: 1000px;
+ /* Ensures the JS can find the text */
+ display: block; 
+}
+
+/* This is the class applied to each individual letter.
+*/
+.blur-reveal .word {
+ /* Set the initial (hidden) state using our variables */
+ opacity: 0;
+ filter: blur(var(--blur-amount));
+ transform: translateY(var(--translate-y-amount)) rotateX(var(--rotate-x-amount));
+ transform-origin: bottom;
+
+ /* Define the transition */
+ transition: opacity var(--opacity-duration) ease, 
+             filter var(--filter-duration) ease, 
+             transform var(--transform-duration) var(--transform-ease);
+ 
+ /* This ensures letters wrap correctly */
+ display: inline-block;
+ /* No margin-right, to keep letters together */
+}
+
+/* This class is added by JavaScript to trigger the animation.
+*/
+.blur-reveal .word.is-visible {
+ /* Set the final (visible) state */
+ opacity: 1;
+ filter: blur(0);
+ transform: translateY(0) rotateX(0);
+}

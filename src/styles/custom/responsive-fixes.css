@@ -1,0 +1,27 @@
+/* On tablet/mobile the layout is a single column, so a fixed header covers the
+   page content while scrolling. Let it scroll away with the hero instead. */
+@media (max-width: 1024px) {
+  .elementor-55 .elementor-element.elementor-element-1d20b9b5 {
+    --position: absolute;
+  }
+}
+
+/* Letters are wrapped individually for the reveal animation; keep each word
+   together so headings never break mid-word (e.g. "M / E"). */
+.blur-reveal .word-group {
+  white-space: nowrap;
+}
+
+/* Contact hero title was limited to 190px on mobile, wrapping "WORK WITH ME" onto
+   three lines that ran into the menu button. Allow the full width (two lines). */
+@media (max-width: 767px) {
+  .elementor-74 .elementor-element.elementor-element-6c5d4fb7 {
+    --container-widget-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Keep the full name on one line in the header. */
+.elementor-55 .elementor-element.elementor-element-c84cc49 .elementor-image-box-title {
+  white-space: nowrap;
+}
